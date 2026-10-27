@@ -1,0 +1,17 @@
+<table class="table table-warning">
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Localidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (dept of departamentos; track dept) {
+      <tr>
+        <th>{{dept.numero}}</th>
+        <td>{{dept.nombre}}</td>
+        <td>{{dept.localidad}}</td>
+      </tr>
+    }   
+  </tbody>
