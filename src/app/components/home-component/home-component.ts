@@ -18,8 +18,18 @@ export class HomeComponent implements OnInit {
     private _cdr: ChangeDetectorRef         
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  async loadDepartamentos(): Promise<void> {
     this.departamentos = await this._service.getDepartamentos();
     this._cdr.detectChanges();
   }
+
+  async deleteDepartamento(id: number): Promise<void> {
+    let response = await this._service.deleteDepartamento(id);
+    await this.loadDepartamentos();
+  }
+
+  async ngOnInit(): Promise<void> {
+    await this.loadDepartamentos();
+  }
+    
 }

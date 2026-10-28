@@ -1,0 +1,9 @@
+<p>details-component works!</p>
+<p><a [routerLink]="['/']">Back to index</a></p>
+@if (Departamento)
+{
+    <h2>Detalles del Departamento</h2>
+    <p>Id Departamento: {{Departamento.numero}}</p>
+    <p>Nombre: {{Departamento.nombre}}</p>
+    <p>Localidad: {{Departamento.localidad}}</p>
+}

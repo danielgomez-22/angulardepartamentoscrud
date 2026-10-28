@@ -4,6 +4,7 @@
       <th>Numero</th>
       <th>Nombre</th>
       <th>Localidad</th>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,13 @@
         <th>{{dept.numero}}</th>
         <td>{{dept.nombre}}</td>
         <td>{{dept.localidad}}</td>
+        <td>
+          <a [routerLink]="['/details/' + dept.numero + '/' + dept.nombre + '/' + dept.localidad]" class="btn btn-info">Detalles</a>
+          <!--OTRA FORMA <a [routerLink]="['/details/', dept.numero, dept.nombre, dept.localidad]">Detalles</a> -->
+          <a [routerLink]="['/update/' + dept.numero ]" class="btn btn-primary">Update</a>
+          <button class="btn btn-danger" (click)="deleteDepartamento(dept.numero)">Delete</button>
+        </td>
       </tr>
-    }   
+    }
   </tbody>
+</table>

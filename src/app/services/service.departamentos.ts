@@ -28,4 +28,23 @@ export class DepartamentosService {
         );
 
     }
+
+    async findDeparatemntosAsync(id: number): Promise<Departamento> {
+        let request = 'api/departamentos/' + id;
+        return firstValueFrom(this.http.get<Departamento>(this.url + request));
+    }
+    async updateDepartamento(departamento: Departamento): Promise<any> {
+        let json = JSON.stringify(departamento);
+        let header = new HttpHeaders().set('Content-Type', 'application/json');
+        let request = 'api/departamentos/';
+        return firstValueFrom(
+            this.http.put(this.url + request, json, { headers: header })
+        )
+    }
+
+    async deleteDepartamento(id: number): Promise<any> {
+        let request = 'api/departamentos/' + id;
+        return firstValueFrom(this.http.delete(this.url + request));
+        
+    }
 }
